@@ -1,0 +1,19 @@
+digraph G {
+graph [fontname="DejaVu Sans", bgcolor="white", pad="0.30", ranksep="0.85", nodesep="0.4", splines=polyline, outputorder=edgesfirst];
+node [fontname="DejaVu Sans", shape=box, style="rounded,filled", color="#b5cad7", penwidth=1.2, fillcolor="#E9F5F4", fontcolor="#153D54", fontsize=14, margin="0.22,0.16"];
+edge [color="#45778B", fontname="DejaVu Sans", fontcolor="#436779", fontsize=11, penwidth=1.7, arrowsize=0.75];
+rankdir=LR;
+PHONE [label="Phone / Laptop\n192.168.50.x",fillcolor="#DAF1FF"];
+CPE [label="Home Router\nPPPoE Client + NAT\nLAN DHCP",fillcolor="#C7EFDF"];
+ONU [label="Bridge ONU\nPON Access",fillcolor="#DBF5F0"];
+OLT [label="OLT PON Port\nService VLAN 300",fillcolor="#C7EFDF"];
+AGG [label="Aggregation Switch\nTagged VLAN 300",fillcolor="#E2DBFF"];
+BNG [label="BNG / PPPoE Server\nAAA + IP Assignment",fillcolor="#FFE1AD"];
+CORE [label="ISP Core Router",fillcolor="#EDF1F5"];
+PHONE -> CPE [label="Wi-Fi/LAN"];
+CPE -> ONU [label="Untagged PPPoE"];
+ONU -> OLT [label="GPON Fiber"];
+OLT -> AGG [label="Tagged 300"];
+AGG -> BNG [label="Tagged 300"];
+BNG -> CORE;
+}

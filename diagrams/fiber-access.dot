@@ -1,0 +1,13 @@
+digraph G {
+graph [fontname="DejaVu Sans", bgcolor="white", pad="0.28", ranksep="0.75", nodesep="0.38", splines=polyline, outputorder=edgesfirst];
+node [fontname="DejaVu Sans", shape=box, style="rounded,filled", color="#b5cad7", penwidth=1.2, fillcolor="#E9F5F4", fontcolor="#153D54", fontsize=14, margin="0.20,0.14"];
+edge [color="#45778B", fontname="DejaVu Sans", fontcolor="#436779", fontsize=11, penwidth=1.7, arrowsize=0.75];
+rankdir=LR;
+U [label="Customer Router",fillcolor="#D9EDFE"];
+ONU [label="ONU / ONT\nRx / Tx dBm",fillcolor="#C9F0E1"];
+SPL [label="Passive Splitter\nOptical Loss",fillcolor="#FFE3B4"];
+ODF [label="ODF / Fiber Patch",fillcolor="#FFE8C9"];
+OLT [label="OLT PON Port\nOptical / LOS",fillcolor="#D4EAF9"];
+AGG [label="Aggregation Switch",fillcolor="#E3E0FF"];
+U->ONU [label="Ethernet"]; ONU->SPL [label="Fiber"]; SPL->ODF [label="Fiber"]; ODF->OLT [label="Fiber"]; OLT->AGG [label="Uplink"];
+}

@@ -1,0 +1,17 @@
+digraph G {
+graph [fontname="DejaVu Sans", bgcolor="white", pad="0.30", ranksep="0.85", nodesep="0.4", splines=polyline, outputorder=edgesfirst];
+node [fontname="DejaVu Sans", shape=box, style="rounded,filled", color="#b5cad7", penwidth=1.2, fillcolor="#E9F5F4", fontcolor="#153D54", fontsize=14, margin="0.22,0.16"];
+edge [color="#45778B", fontname="DejaVu Sans", fontcolor="#436779", fontsize=11, penwidth=1.7, arrowsize=0.75];
+rankdir=LR;
+A [label="Customer: No Internet",fillcolor="#FFE1AD"];
+B [label="ONU Online / Optical?",shape=diamond,fillcolor="#F6E4C7"];
+C [label="Check LOS, Fiber, PON",fillcolor="#FFE1AD"];
+D [label="PPPoE Session Active?",shape=diamond,fillcolor="#F6E4C7"];
+E [label="PADO? VLAN / AC / Auth",fillcolor="#FFE1AD"];
+F [label="Client IP / Gateway?",shape=diamond,fillcolor="#F6E4C7"];
+G [label="DHCP / LAN / PVID",fillcolor="#DAF1FF"];
+H [label="L3, NAT, DNS, TLS",fillcolor="#C7EFDF"];
+A -> B; B -> C [label="No"]; B -> D [label="Yes"];
+D -> E [label="No"]; D -> F [label="Yes"];
+F -> G [label="Wrong"]; F -> H [label="Correct"];
+}

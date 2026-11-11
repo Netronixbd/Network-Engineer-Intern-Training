@@ -1,0 +1,13 @@
+digraph G {
+graph [fontname="DejaVu Sans", bgcolor="white", pad="0.28", ranksep="0.75", nodesep="0.38", splines=polyline, outputorder=edgesfirst];
+node [fontname="DejaVu Sans", shape=box, style="rounded,filled", color="#b5cad7", penwidth=1.2, fillcolor="#E9F5F4", fontcolor="#153D54", fontsize=14, margin="0.20,0.14"];
+edge [color="#45778B", fontname="DejaVu Sans", fontcolor="#436779", fontsize=11, penwidth=1.7, arrowsize=0.75];
+rankdir=LR;
+STAFF [label="Staff PC\n192.168.10.10/24\nGW: .10.1",fillcolor="#DDF0FF"];
+GUEST [label="Guest PC\n192.168.20.10/24\nGW: .20.1",fillcolor="#FFE9C7"];
+SW [label="L2 Switch\nAccess + Trunk",fillcolor="#D6F0DF"];
+R [label="Router-on-a-Stick\nGi0/1.10 = 192.168.10.1\nGi0/1.20 = 192.168.20.1",fillcolor="#E9E1FB"];
+STAFF -> SW [label="VLAN10"];
+GUEST -> SW [label="VLAN20"];
+SW -> R [label="802.1Q\nVLAN10,20",penwidth=2.6];
+}

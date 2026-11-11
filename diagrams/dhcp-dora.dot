@@ -1,0 +1,11 @@
+digraph G {
+graph [fontname="DejaVu Sans", bgcolor="white", pad="0.30", ranksep="0.8", nodesep="0.40", splines=polyline, outputorder=edgesfirst, rankdir=LR];
+node [fontname="DejaVu Sans", shape=box, style="rounded,filled", color="#b5cad7", penwidth=1.2, fillcolor="#E9F5F4", fontcolor="#153D54", fontsize=14, margin="0.24,0.18"];
+edge [color="#45778B", fontname="DejaVu Sans", fontcolor="#436779", fontsize=12, penwidth=2, arrowsize=0.75];
+D [label="1. DISCOVER\nClient -> Broadcast / Relay",fillcolor="#DFEEFF"];
+O [label="2. OFFER\nServer -> Client",fillcolor="#D8F1E2"];
+R [label="3. REQUEST\nClient -> Server",fillcolor="#FFF0CF"];
+A [label="4. ACK\nServer -> Client",fillcolor="#E7DDFF"];
+LEASE [label="IPv4 Lease\nAddress + Mask\nGateway + DNS",fillcolor="#DCF4EC"];
+D -> O -> R -> A -> LEASE;
+}

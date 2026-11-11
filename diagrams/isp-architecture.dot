@@ -1,0 +1,18 @@
+digraph G {
+graph [fontname="DejaVu Sans", bgcolor="white", pad="0.28", ranksep="0.75", nodesep="0.38", splines=polyline, outputorder=edgesfirst];
+node [fontname="DejaVu Sans", shape=box, style="rounded,filled", color="#b5cad7", penwidth=1.2, fillcolor="#E9F5F4", fontcolor="#153D54", fontsize=14, margin="0.20,0.14"];
+edge [color="#45778B", fontname="DejaVu Sans", fontcolor="#436779", fontsize=11, penwidth=1.7, arrowsize=0.75];
+rankdir=LR;
+CPE [label="Customer Router\nCPE / PPPoE",fillcolor="#DAF1FF"];
+ONU [label="ONU / ONT\nSubscriber Fiber",fillcolor="#DBF5F0"];
+OLT [label="OLT\nAccess POP",fillcolor="#C7EFDF"];
+AGG [label="Aggregation\nVLAN / Uplink",fillcolor="#C7EFDF"];
+BNG [label="BNG / BRAS\nSession + Policy",fillcolor="#FFE1AD"];
+CORE [label="Core Router\nBGP / Routing",fillcolor="#E2DBFF"];
+UP [label="Transit / Peering\nSimulated Internet",fillcolor="#EDF1F5"];
+AAA [label="AAA / RADIUS",fillcolor="#FFF0D2"];
+NOC [label="NOC Monitoring",fillcolor="#F0E4FF"];
+CPE -> ONU; ONU -> OLT; OLT -> AGG; AGG -> BNG; BNG -> CORE; CORE -> UP;
+BNG -> AAA [style=dashed,label="auth/accounting"];
+CORE -> NOC [style=dashed,label="telemetry"];
+}

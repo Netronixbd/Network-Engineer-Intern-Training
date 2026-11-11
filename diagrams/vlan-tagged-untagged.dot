@@ -1,0 +1,17 @@
+digraph G {
+graph [fontname="DejaVu Sans", bgcolor="white", pad="0.30", ranksep="0.85", nodesep="0.4", splines=polyline, outputorder=edgesfirst];
+node [fontname="DejaVu Sans", shape=box, style="rounded,filled", color="#b5cad7", penwidth=1.2, fillcolor="#E9F5F4", fontcolor="#153D54", fontsize=14, margin="0.22,0.16"];
+edge [color="#45778B", fontname="DejaVu Sans", fontcolor="#436779", fontsize=11, penwidth=1.7, arrowsize=0.75];
+rankdir=LR;
+PC10 [label="Staff PC\nUntagged frames",fillcolor="#DAF1FF"];
+SW [label="Switch\nAccess port PVID 10",fillcolor="#C7EFDF"];
+TRUNK [label="802.1Q Trunk\nVLAN 10 + VLAN 20",fillcolor="#E2DBFF"];
+SW2 [label="Remote Switch\nVLAN membership",fillcolor="#C7EFDF"];
+PC2 [label="Remote Staff PC\nUntagged frames",fillcolor="#DAF1FF"];
+PC20 [label="Guest PC\nVLAN 20",fillcolor="#FFE1AD"];
+PC10 -> SW [label="No tag"];
+SW -> TRUNK [label="Add VID=10 tag"];
+TRUNK -> SW2 [label="Tagged VLAN10"];
+SW2 -> PC2 [label="Strip tag"];
+PC20 -> SW [style=dashed,label="PVID 20 access"];
+}

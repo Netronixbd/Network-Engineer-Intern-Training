@@ -1,0 +1,15 @@
+digraph G {
+graph [fontname="DejaVu Sans", bgcolor="white", pad="0.28", ranksep="0.75", nodesep="0.38", splines=polyline, outputorder=edgesfirst];
+node [fontname="DejaVu Sans", shape=box, style="rounded,filled", color="#b5cad7", penwidth=1.2, fillcolor="#E9F5F4", fontcolor="#153D54", fontsize=14, margin="0.20,0.14"];
+edge [color="#45778B", fontname="DejaVu Sans", fontcolor="#436779", fontsize=11, penwidth=1.7, arrowsize=0.75];
+rankdir=TB;
+node [shape=box, width=4.9, height=.55, margin=.10];
+L7 [label="L7 Application  |  HTTP, DNS, SSH",fillcolor="#CBEDE5"];
+L6 [label="L6 Presentation  |  Encoding / TLS concepts",fillcolor="#DCF3E7"];
+L5 [label="L5 Session  |  Session management model",fillcolor="#E8F8EB"];
+L4 [label="L4 Transport  |  TCP / UDP",fillcolor="#DBECFC"];
+L3 [label="L3 Network  |  IPv4, IPv6, ICMP, Routing",fillcolor="#D2E5FF"];
+L2 [label="L2 Data Link  |  Ethernet, MAC, 802.1Q",fillcolor="#FFE8CA"];
+L1 [label="L1 Physical  |  Copper, Fiber, Optics",fillcolor="#FFE0C0"];
+L7->L6->L5->L4->L3->L2->L1 [arrowsize=.5];
+}

@@ -1,0 +1,11 @@
+digraph G {
+graph [fontname="DejaVu Sans", bgcolor="white", pad="0.28", ranksep="0.75", nodesep="0.38", splines=polyline, outputorder=edgesfirst];
+node [fontname="DejaVu Sans", shape=box, style="rounded,filled", color="#b5cad7", penwidth=1.2, fillcolor="#E9F5F4", fontcolor="#153D54", fontsize=14, margin="0.20,0.14"];
+edge [color="#45778B", fontname="DejaVu Sans", fontcolor="#436779", fontsize=11, penwidth=1.7, arrowsize=0.75];
+rankdir=LR;
+A [label="PC A\n192.168.10.10/24\nGW 192.168.10.1",fillcolor="#DBF0FF"];
+R1 [label="Router R1\nLAN 192.168.10.1\nP2P 10.0.0.1",fillcolor="#C7EFDF"];
+R2 [label="Router R2\nP2P 10.0.0.2\nLAN 192.168.20.1",fillcolor="#C7EFDF"];
+B [label="PC B\n192.168.20.10/24\nGW 192.168.20.1",fillcolor="#FFE6C1"];
+A -> R1; R1 -> R2 [label="10.0.0.0/30",penwidth=2.5]; R2 -> B;
+}

@@ -1,0 +1,24 @@
+# Never commit secrets, operational backups or user data
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.rsc
+*.backup
+*.pcap
+*.pcapng
+*.log
+*.sqlite
+*.db
+secrets/
+backups/
+private/
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+.venv/
+venv/

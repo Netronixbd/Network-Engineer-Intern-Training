@@ -1,0 +1,17 @@
+digraph G {
+graph [fontname="DejaVu Sans", bgcolor="white", pad="0.28", ranksep="0.75", nodesep="0.38", splines=polyline, outputorder=edgesfirst];
+node [fontname="DejaVu Sans", shape=box, style="rounded,filled", color="#b5cad7", penwidth=1.2, fillcolor="#E9F5F4", fontcolor="#153D54", fontsize=14, margin="0.20,0.14"];
+edge [color="#45778B", fontname="DejaVu Sans", fontcolor="#436779", fontsize=11, penwidth=1.7, arrowsize=0.75];
+rankdir=TB;
+A [label="User Issue",fillcolor="#DDF1FF"];
+B [label="L1: Link / optical up?",shape=diamond,fillcolor="#FFF3D2"];
+C [label="L1 Check: cable / fiber / optics",fillcolor="#FEE4DD"];
+D [label="L2: VLAN / ARP correct?",shape=diamond,fillcolor="#FFF3D2"];
+E [label="L2 Check: switch / trunk / DHCP",fillcolor="#FEE4DD"];
+F [label="L3: Gateway / routes work?",shape=diamond,fillcolor="#FFF3D2"];
+G [label="L3 Check: routes / NAT / ACL",fillcolor="#FEE4DD"];
+H [label="L7: DNS / service healthy?",shape=diamond,fillcolor="#FFF3D2"];
+I [label="L7 Check: DNS / port / TLS",fillcolor="#FEE4DD"];
+J [label="Verify / Document / Handover",fillcolor="#D8F2E4"];
+A->B; B->C [label="No"]; B->D [label="Yes"]; D->E [label="No"]; D->F [label="Yes"]; F->G [label="No"]; F->H [label="Yes"]; H->I [label="No"]; H->J [label="Yes"];
+}

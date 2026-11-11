@@ -1,0 +1,20 @@
+name: Validate Training Repository
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate relative links and educational assets
+        run: python scripts/validate_repo.py
+      - name: Test subnetting helper
+        run: cd scripts && python -m unittest discover -v

@@ -1,0 +1,14 @@
+digraph G {
+graph [fontname="DejaVu Sans", bgcolor="white", pad="0.30", ranksep="0.85", nodesep="0.4", splines=polyline, outputorder=edgesfirst];
+node [fontname="DejaVu Sans", shape=box, style="rounded,filled", color="#b5cad7", penwidth=1.2, fillcolor="#E9F5F4", fontcolor="#153D54", fontsize=14, margin="0.22,0.16"];
+edge [color="#45778B", fontname="DejaVu Sans", fontcolor="#436779", fontsize=11, penwidth=1.7, arrowsize=0.75];
+rankdir=LR;
+R1 [label="AS 64512 / R1\nPeer 192.0.2.1/30\nPrefix 10.10.10.0/24",fillcolor="#C7EFDF"];
+R2 [label="AS 64513 / R2\nPeer 192.0.2.2/30\nPrefix 10.20.20.0/24",fillcolor="#DAF1FF"];
+POL1 [label="Outbound Filter\nPermit Own /24 Only",fillcolor="#FFE1AD"];
+POL2 [label="Inbound Filter\nPermit Partner /24 Only",fillcolor="#FFE1AD"];
+R1 -> POL1 [label="BGP UPDATE"];
+POL1 -> R2 [label="TCP/179 eBGP"];
+R2 -> POL2 [label="BGP UPDATE"];
+POL2 -> R1 [label="TCP/179 eBGP"];
+}
